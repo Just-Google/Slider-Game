@@ -11,15 +11,18 @@ abstract class State(player:Player){
   def obstaclePlaced(position: Position): Unit
 
   def goalReached(): Unit = {
-    player.stage += 1
-    player.state = new Stationary(player)
-    map.newGoal()
+    if(player.position.checkCollision(map.goal)){
+      player.stage += 1
+      map.newGoal()
+    }
   }
 
   def gameOver(): Unit = {
-    println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
-    player.moves = 0
-    player.stage = 0
-    map.reset()
+    if(player.position.checkBorder()){
+      println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
+      player.moves = 0
+      player.stage = 0
+      map.reset()
+    }
   }
 }
