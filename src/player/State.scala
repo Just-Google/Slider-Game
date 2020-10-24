@@ -9,6 +9,6 @@ abstract class State(player:Player){
   def obstaclePlaced(): Unit
 
   def generatePosition(): Position = {//0 - .9999999
-    new Position(Math.random() * player.
+    new Position((Math.random() * player.mapSize+1).toInt, (Math.random() * player.mapSize+1).toInt)
   }
 }

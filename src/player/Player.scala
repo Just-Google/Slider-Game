@@ -6,7 +6,7 @@ class Player {
   var moves: Int = 0
   var obstacles: List[Position] = List()
   var goal: Position = this.state.generatePosition()
-  var mapSize:
+  var mapSize: Int = 50
 
   def wClicked(): Unit = {
     this.state.wClicked()
