@@ -1,5 +1,7 @@
 package player
 
+import map.map
+
 class Position(x: Int, y: Int){
   def checkCollision(position:Position): Boolean = {
     this.x == position.x && this.y == position.y
