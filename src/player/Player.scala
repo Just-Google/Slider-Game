@@ -1,4 +1,4 @@
-package Slider
+package player
 
 class Player {
   var state: State = new Stationary(this)

@@ -1,4 +1,4 @@
-package Slider
+package player
 
 abstract class State(player:Player){
   def wClicked(): Unit
