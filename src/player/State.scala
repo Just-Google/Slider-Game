@@ -15,4 +15,11 @@ abstract class State(player:Player){
     player.state = new Stationary(player)
     map.newGoal()
   }
+
+  def gameOver(): Unit = {
+    println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
+    player.moves = 0
+    player.stage = 0
+    map.reset()
+  }
 }
