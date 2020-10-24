@@ -8,7 +8,7 @@ abstract class State(player:Player){
   def aClicked(): Unit
   def dClicked(): Unit
 
-  def obstaclePlaced(): Unit
+  def obstaclePlaced(position: Position): Unit
 
   def goalReached(): Unit = {
     player.stage += 1

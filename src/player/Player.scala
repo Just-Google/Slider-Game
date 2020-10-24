@@ -21,8 +21,8 @@ class Player {
     this.state.dClicked()
   }
 
-  def obstaclePlaced(): Unit = {
-    this.state.obstaclePlaced()
+  def obstaclePlaced(position: Position): Unit = {
+    this.state.obstaclePlaced(position: Position)
   }
 
 }
