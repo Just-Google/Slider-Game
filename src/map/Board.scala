@@ -2,7 +2,7 @@ package map
 
 import player._
 
-object map {
+object Board {
   var obstacles: List[Position] = List()
   var goal: Position = generatePosition(new Position(0,0))
   var mapSize: Int = 50

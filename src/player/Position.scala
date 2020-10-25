@@ -1,6 +1,6 @@
 package player
 
-import map.map
+import map.Board
 
 class Position(var x: Int, var y: Int){
   def checkCollision(position:Position): Boolean = {

@@ -1,15 +1,15 @@
 package player
 
-import map.map
+import map.Board
 
 class Stationary(player: Player) extends State(player){
   override def wClicked(): Unit = {
     player.moves += 1
     player.state = new Moving(player)
-    while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
+    while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(0,1)
     }
-    if(!map.validPosition(player.position, map.obstacles)){
+    if(!Board.validPosition(player.position, Board.obstacles)){
       player.position.move(0,-1)
     }
     goalReached()
@@ -20,10 +20,10 @@ class Stationary(player: Player) extends State(player){
   override def sClicked(): Unit = {
     player.moves += 1
     player.state = new Moving(player)
-    while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
+    while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(0,-1)
     }
-    if(!map.validPosition(player.position, map.obstacles)){
+    if(!Board.validPosition(player.position, Board.obstacles)){
       player.position.move(0,1)
     }
     goalReached()
@@ -34,10 +34,10 @@ class Stationary(player: Player) extends State(player){
   override def aClicked(): Unit = {
     player.moves += 1
     player.state = new Moving(player)
-    while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
+    while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(-1,0)
     }
-    if(!map.validPosition(player.position, map.obstacles)){
+    if(!Board.validPosition(player.position, Board.obstacles)){
       player.position.move(1,0)
     }
     goalReached()
@@ -48,10 +48,10 @@ class Stationary(player: Player) extends State(player){
   override def dClicked(): Unit = {
     player.moves += 1
     player.state = new Moving(player)
-    while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
+    while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(1,0)
     }
-    if(!map.validPosition(player.position, map.obstacles)){
+    if(!Board.validPosition(player.position, Board.obstacles)){
       player.position.move(-1,0)
     }
     goalReached()
@@ -60,8 +60,8 @@ class Stationary(player: Player) extends State(player){
   }
 
   override def obstaclePlaced(position: Position): Unit = {
-    if(map.validPosition(position, map.obstacles :+ map.goal :+ player.position )){
-      map.obstacles = map.obstacles :+ position
+    if(Board.validPosition(position, Board.obstacles :+ Board.goal :+ player.position )){
+      Board.obstacles = Board.obstacles :+ position
     }
   }
 }
