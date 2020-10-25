@@ -44,4 +44,28 @@ class PlayerTest extends FunSuite{
     assert(player4.position.y == 0)
   }
 
+  test("obstacle placed"){
+    val player1: Player = new Player()
+    player1.startPressed()
+    player1.obstaclePlaced(new Position(0,10))
+    player1.wClicked()
+    assert(player1.position.x == 0)
+    assert(player1.position.y == 9)
+
+    player1.obstaclePlaced(new Position(10,9))
+    player1.dClicked()
+    assert(player1.position.x == 9)
+    assert(player1.position.y == 9)
+  }
+
+  test("goal crossed"){
+    val player1: Player = new Player()
+    player1.startPressed()
+    Board.goal = new Position(25,25)
+    player1.obstaclePlaced(new Position(0,26))
+    player1.wClicked()
+    player1.dClicked()
+    assert(player1.position.x == 25)
+    assert(player1.position.y == 25)
+  }
 }
