@@ -3,8 +3,8 @@ package Controller
 import javafx.event.EventHandler
 import player.{Player, Position}
 import javafx.scene.input.{KeyEvent, MouseEvent}
-import scalafx.scene.shape.Rectangle
-import slider.Slider
+import javafx.event.ActionEvent
+import slider.Slider._
 
 class KeyboardInput(p: Player) extends EventHandler[KeyEvent] {
 
@@ -23,11 +23,26 @@ class KeyboardInput(p: Player) extends EventHandler[KeyEvent] {
 class MouseInput(p: Player) extends EventHandler[MouseEvent] {
 
   override def handle(event: MouseEvent): Unit = {
-    val x = (event.getX / Slider.SCALE).toInt - 1
-    val y = (event.getY / Slider.SCALE).toInt - 1
+    val x = (event.getX / SCALE).toInt - 1
+    val y = (event.getY / SCALE).toInt - 1
     if (x >= 0 && x <= 50 && y >= 0 && x <= 50) {
       p.obstaclePlaced(new Position(x, y))
     }
   }
 
+}
+
+class ButtonEvent(p: Player, s: String) extends EventHandler[ActionEvent] {
+
+  override def handle(event: ActionEvent): Unit = {
+    if (s == "Start") {
+      p.startPressed()
+    }
+    else if (s == "Restart") {
+      p.retry()
+    }
+    else if (s == "Giveup") {
+      p.giveUp()
+    }
+  }
 }

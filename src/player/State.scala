@@ -1,6 +1,7 @@
 package player
 
 import map.Board
+import slider.Slider
 
 abstract class State(player:Player){
   def wClicked(): Unit
@@ -22,12 +23,14 @@ abstract class State(player:Player){
     if(player.position.checkBorder()){
       println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
       player.state = new GameOver(player)
+      Slider.gameOverText.setText("Game Over")
     }
   }
 
   def giveUp(): Unit = {
     println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
     player.state = new GameOver(player)
+    Slider.gameOverText.setText("Game Over")
   }
 
   def retry(): Unit = {
