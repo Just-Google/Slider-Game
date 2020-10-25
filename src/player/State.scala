@@ -26,7 +26,8 @@ abstract class State(player:Player){
   }
 
   def giveUp(): Unit = {
-    gameOver()
+    println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
+    player.state = new GameOver(player)
   }
 
   def retry(): Unit = {
