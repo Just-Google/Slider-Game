@@ -4,8 +4,10 @@ import map.Board
 
 class Stationary(player: Player) extends State(player){
   override def wClicked(): Unit = {
-    player.moves += 1
     player.state = new Moving(player)
+    if(Board.validPosition(new Position(player.position.x,player.position.y-1), Board.obstacles)){
+      player.moves += 1
+    }
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(0,-1)
     }
@@ -18,8 +20,10 @@ class Stationary(player: Player) extends State(player){
   }
 
   override def sClicked(): Unit = {
-    player.moves += 1
     player.state = new Moving(player)
+    if(Board.validPosition(new Position(player.position.x,player.position.y+1), Board.obstacles)){
+      player.moves += 1
+    }
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(0,1)
     }
@@ -32,8 +36,10 @@ class Stationary(player: Player) extends State(player){
   }
 
   override def aClicked(): Unit = {
-    player.moves += 1
     player.state = new Moving(player)
+    if(Board.validPosition(new Position(player.position.x-1,player.position.y), Board.obstacles)){
+      player.moves += 1
+    }
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(-1,0)
     }
@@ -46,8 +52,10 @@ class Stationary(player: Player) extends State(player){
   }
 
   override def dClicked(): Unit = {
-    player.moves += 1
     player.state = new Moving(player)
+    if(Board.validPosition(new Position(player.position.x+1,player.position.y), Board.obstacles)){
+      player.moves += 1
+    }
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
       player.position.move(1,0)
     }
@@ -62,6 +70,7 @@ class Stationary(player: Player) extends State(player){
   override def obstaclePlaced(position: Position): Unit = {
     if(Board.validPosition(position, Board.obstacles :+ Board.goal :+ player.position )){
       Board.obstacles = Board.obstacles :+ position
+      player.moves += 1
     }
   }
 }
