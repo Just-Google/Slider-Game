@@ -22,6 +22,18 @@ abstract class State(player:Player){
     if(player.position.checkBorder()){
       println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
     }
+    player.state = new GameOver(player)
+  }
+
+  def giveUp(): Unit = {
+    println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
+    player.state = new GameOver(player)
+  }
+
+  def retry(): Unit = {
+    val temp: Int = Board.obstacles.size
+    Board.obstacles = List()
+    Board.generateRandomObstacles(temp)
   }
 
   def startPressed(): Unit = {}
