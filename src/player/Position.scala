@@ -2,14 +2,14 @@ package player
 
 import map.map
 
-class Position(x: Int, y: Int){
+class Position(var x: Int, var y: Int){
   def checkCollision(position:Position): Boolean = {
     this.x == position.x && this.y == position.y
   }
 
-  def move(vertical: Int, horizontal: Int): Unit = {
-    x += vertical
-    y += horizontal
+  def move(horizontal: Int, vertical: Int): Unit = {
+    x += horizontal
+    y += vertical
   }
 
   def checkBorder(): Boolean = {

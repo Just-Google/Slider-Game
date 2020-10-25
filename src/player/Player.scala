@@ -1,6 +1,6 @@
 package player
 
-import map.Board
+import map._
 
 class Player {
   var state: State = new Stationary(this)

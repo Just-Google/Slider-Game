@@ -9,16 +9,16 @@ class PlayerTest extends FunSuite{
   test("Test W") {
 
     val player1: Player = new Player()
-    Board.goal = new Position(30, 0)
+    map.goal = new Position(30, 0)
     player1.wClicked()
 
-    assert(player1.position.x == 30)
+    assert(player1.position.x == 51)
   }
 
   test("Test A") {
 
     val player1: Player = new Player()
-    Board.goal = new Position(0, 20)
+    map.goal = new Position(25, 20)
     player1.aClicked()
 
     assert(player1.position.y == 20)
@@ -27,7 +27,7 @@ class PlayerTest extends FunSuite{
   test("Test S") {
 
     val player1: Player = new Player()
-    Board.goal = new Position(20, 0)
+    map.goal = new Position(20, 25)
     player1.sClicked()
 
     assert(player1.position.x == 20)
@@ -36,7 +36,7 @@ class PlayerTest extends FunSuite{
   test("Test D") {
 
     val player1: Player = new Player()
-    Board.goal = new Position(0, 30)
+    map.goal = new Position(25, 30)
     player1.dClicked()
 
     assert(player1.position.y == 30)
