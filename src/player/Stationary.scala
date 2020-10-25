@@ -7,10 +7,10 @@ class Stationary(player: Player) extends State(player){
     player.moves += 1
     player.state = new Moving(player)
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
-      player.position.move(0,1)
+      player.position.move(0,-1)
     }
     if(!Board.validPosition(player.position, Board.obstacles)){
-      player.position.move(0,-1)
+      player.position.move(0,1)
     }
     goalReached()
     player.state = new Stationary(player)
@@ -21,10 +21,10 @@ class Stationary(player: Player) extends State(player){
     player.moves += 1
     player.state = new Moving(player)
     while(Board.validPosition(player.position, Board.obstacles :+ Board.goal) && !player.position.checkBorder()){
-      player.position.move(0,-1)
+      player.position.move(0,1)
     }
     if(!Board.validPosition(player.position, Board.obstacles)){
-      player.position.move(0,1)
+      player.position.move(0,-1)
     }
     goalReached()
     player.state = new Stationary(player)

@@ -1,6 +1,8 @@
 package map
 
 import player._
+import scalafx.scene.shape.Rectangle
+import slider.Slider
 
 object Board {
   var obstacles: List[Position] = List()
