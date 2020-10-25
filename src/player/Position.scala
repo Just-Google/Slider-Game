@@ -13,6 +13,6 @@ class Position(var x: Int, var y: Int){
   }
 
   def checkBorder(): Boolean = {
-    this.x < 0 || this.y < 0 || this.x > 50 && this.y > 50
+    this.x < 0 || this.y < 0 || this.x > 50 || this.y > 50
   }
 }

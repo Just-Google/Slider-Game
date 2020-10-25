@@ -9,6 +9,9 @@ class Stationary(player: Player) extends State(player){
     while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
       player.position.move(0,1)
     }
+    if(!map.validPosition(player.position, map.obstacles)){
+      player.position.move(0,-1)
+    }
     goalReached()
     gameOver()
     player.state = new Stationary(player)
@@ -19,6 +22,9 @@ class Stationary(player: Player) extends State(player){
     player.state = new Moving(player)
     while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
       player.position.move(0,-1)
+    }
+    if(!map.validPosition(player.position, map.obstacles)){
+      player.position.move(0,1)
     }
     goalReached()
     gameOver()
@@ -31,6 +37,9 @@ class Stationary(player: Player) extends State(player){
     while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
       player.position.move(-1,0)
     }
+    if(!map.validPosition(player.position, map.obstacles)){
+      player.position.move(1,0)
+    }
     goalReached()
     gameOver()
     player.state = new Stationary(player)
@@ -41,6 +50,9 @@ class Stationary(player: Player) extends State(player){
     player.state = new Moving(player)
     while(map.validPosition(player.position, map.obstacles :+ map.goal) && !player.position.checkBorder()){
       player.position.move(1,0)
+    }
+    if(!map.validPosition(player.position, map.obstacles)){
+      player.position.move(-1,0)
     }
     goalReached()
     gameOver()

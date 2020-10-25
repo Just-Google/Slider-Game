@@ -9,10 +9,11 @@ class PlayerTest extends FunSuite{
   test("Test W") {
 
     val player1: Player = new Player()
-    map.goal = new Position(30, 0)
+    map.goal = new Position(0, 30)
     player1.wClicked()
 
-    assert(player1.position.x == 51)
+    assert(player1.position.y == 51)
+    assert(player1.position.x == 25)
   }
 
   test("Test A") {
