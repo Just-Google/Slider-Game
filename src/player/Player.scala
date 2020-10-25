@@ -3,8 +3,8 @@ package player
 import map._
 
 class Player {
-  var state: State = new Stationary(this)
-  var position: Position = new Position(25, 25)
+  var state: State = new GameOver(this)
+  var position: Position = new Position(0, 0)
   var moves: Int = 0
   var stage: Int = 0
 
@@ -25,4 +25,7 @@ class Player {
     this.state.obstaclePlaced(position: Position)
   }
 
+  def startPressed(): Unit = {
+    this.state.startPressed()
+  }
 }
