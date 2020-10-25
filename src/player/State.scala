@@ -14,6 +14,7 @@ abstract class State(player:Player){
     if(player.position.checkCollision(map.goal)){
       player.stage += 1
       map.newGoal()
+      map.generateRandomObstacles(1)
     }
   }
 
