@@ -9,6 +9,9 @@ object Board {
 
   def newGoal(): Unit = {
     goal = generatePosition(goal)
+    while((goal.x == 0 && goal.y == 0)||(goal.x == 50 && goal.y == 50)||(goal.x == 0 && goal.y == 50)||(goal.x == 50 && goal.y == 0)){
+      goal = generatePosition(goal)
+    }
   }
 
   def generateRandomObstacles(number: Int): Unit = {
@@ -46,6 +49,6 @@ object Board {
   def reset(): Unit = {
     obstacles = List()
     generateRandomObstacles(5)
-    goal = generatePosition(new Position(0,0))
+    newGoal()
   }
 }
