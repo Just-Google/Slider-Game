@@ -1,10 +1,10 @@
 package player
 
-import map.map
+import map.Board
 
 class Player {
   var state: State = new Stationary(this)
-  var position: Position = new Position(0,0)
+  var position: Position = new Position(25, 25)
   var moves: Int = 0
   var stage: Int = 0
 
