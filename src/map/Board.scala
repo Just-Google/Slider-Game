@@ -13,7 +13,7 @@ object Board {
 
   def generateRandomObstacles(number: Int): Unit = {
     for(i <- 1 to number){
-      var temp: Position = generatePosition(new Position(0,0))
+      var temp: Position = generatePosition(goal)
       while(!validPosition(temp, obstacles)){
         temp = generatePosition(new Position(0,0))
       }
@@ -45,6 +45,7 @@ object Board {
 
   def reset(): Unit = {
     obstacles = List()
+    generateRandomObstacles(5)
     goal = generatePosition(new Position(0,0))
   }
 }

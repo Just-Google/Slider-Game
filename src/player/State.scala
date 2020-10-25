@@ -13,17 +13,16 @@ abstract class State(player:Player){
   def goalReached(): Unit = {
     if(player.position.checkCollision(Board.goal)){
       player.stage += 1
-      Board.newGoal()
       Board.generateRandomObstacles(1)
+      Board.newGoal()
     }
   }
 
   def gameOver(): Unit = {
     if(player.position.checkBorder()){
       println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
-      player.moves = 0
-      player.stage = 0
-      Board.reset()
     }
   }
+
+  def startPressed(): Unit = {}
 }
