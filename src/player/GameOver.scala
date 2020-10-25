@@ -13,6 +13,7 @@ class GameOver(player: Player) extends State(player) {
   override def goalReached(): Unit = {}
 
   override def gameOver(): Unit = {}
+  override def retry(): Unit = {}
   override def startPressed(): Unit = {
     Board.reset()
     player.moves = 0

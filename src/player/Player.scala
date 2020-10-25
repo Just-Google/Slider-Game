@@ -28,4 +28,12 @@ class Player {
   def startPressed(): Unit = {
     this.state.startPressed()
   }
+
+  def retry(): Unit = {
+    this.state.retry()
+  }
+
+  def giveUp(): Unit = {
+    this.state.giveUp()
+  }
 }
