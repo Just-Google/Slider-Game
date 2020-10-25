@@ -21,8 +21,8 @@ abstract class State(player:Player){
   def gameOver(): Unit = {
     if(player.position.checkBorder()){
       println("You Lost \n" + "Move" + player.moves + "\n" + "Stage" + player.stage)
+      player.state = new GameOver(player)
     }
-    player.state = new GameOver(player)
   }
 
   def giveUp(): Unit = {

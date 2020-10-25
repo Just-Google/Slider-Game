@@ -13,8 +13,8 @@ class Stationary(player: Player) extends State(player){
       player.position.move(0,-1)
     }
     goalReached()
-    gameOver()
     player.state = new Stationary(player)
+    gameOver()
   }
 
   override def sClicked(): Unit = {
@@ -27,8 +27,8 @@ class Stationary(player: Player) extends State(player){
       player.position.move(0,1)
     }
     goalReached()
-    gameOver()
     player.state = new Stationary(player)
+    gameOver()
   }
 
   override def aClicked(): Unit = {
@@ -41,8 +41,8 @@ class Stationary(player: Player) extends State(player){
       player.position.move(1,0)
     }
     goalReached()
-    gameOver()
     player.state = new Stationary(player)
+    gameOver()
   }
 
   override def dClicked(): Unit = {
@@ -55,8 +55,8 @@ class Stationary(player: Player) extends State(player){
       player.position.move(-1,0)
     }
     goalReached()
-    gameOver()
     player.state = new Stationary(player)
+    gameOver()
   }
 
   override def obstaclePlaced(position: Position): Unit = {
